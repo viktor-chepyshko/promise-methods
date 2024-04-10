@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise Examples</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Jura:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="buttons__wrapper">
+      <button onclick="promiseExamples('all')">Promise.all</button>
+      <button onclick="promiseExamples('allSettled')">
+        Promise.allSettled
+      </button>
+      <button onclick="promiseExamples('race')">Promise.race</button>
+      <button onclick="promiseExamples('any')">Promise.any</button>
+    </div>
+    <h2>Result</h2>
+    <div class="description">
+      3 mock requests will be displayed with the following parameters:
+      <ul>
+        <li>index = 1 | delay = 500ms</li>
+        <li>index = 2 | delay = 1000ms</li>
+        <li>index = 3 | delay = 1500ms</li>
+      </ul>
+    </div>
+    <div id="result"></div>
+  </body>
+  <script src="./promises.js"></script>
+</html>
