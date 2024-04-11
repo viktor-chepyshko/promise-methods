@@ -1,5 +1,6 @@
 const promiseExamples = async (method) => {
   clearResult(method);
+  toggleButtons(true);
 
   addTitle('ALL ARE SUCCESSFUL');
 
@@ -48,26 +49,24 @@ const promiseExamples = async (method) => {
     const group = createGroup();
     addCard(e, group, 'error');
   }
+
+  toggleButtons(false);
 };
 
 const formatData = (data, method) => {
+  console.log(data);
+
   switch (method) {
     case 'all': {
-      console.log(data);
       return data;
     }
     case 'allSettled': {
-      console.log(data);
       return data.map(
         (data) => data.value ?? { status: 404, message: data.reason }
       );
     }
-    case 'race': {
-      console.log(data);
-      return [data];
-    }
+    case 'race':
     case 'any': {
-      console.log(data);
       return [data];
     }
   }
@@ -123,4 +122,9 @@ const resultMapper = (arr) => {
   arr.forEach(({ status, message }) => {
     addCard(message, group, status === 200 ? 'success' : 'error');
   });
+};
+
+const toggleButtons = (isDisabled) => {
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach((button) => (button.disabled = isDisabled));
 };

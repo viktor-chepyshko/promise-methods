@@ -39,6 +39,10 @@ button {
   transition: background-color 150ms;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 button:hover {
   background-color: rgba(255, 255, 255, 0.25);
 }
